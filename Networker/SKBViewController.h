@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SKBViewController : UIViewController
+@interface SKBViewController : UIViewController <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
+
+@property (nonatomic, strong) NSURLSession *urlSession;
+@property (nonatomic, strong) NSMutableData *response;
+@property (nonatomic, weak) IBOutlet UITextField *artist;
 
 @end

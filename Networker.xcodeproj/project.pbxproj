@@ -21,6 +21,7 @@
 		1925A9F7183A8AFD005FA26B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1925A9D9183A8AFD005FA26B /* UIKit.framework */; };
 		1925A9FF183A8AFD005FA26B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1925A9FD183A8AFD005FA26B /* InfoPlist.strings */; };
 		1925AA01183A8AFD005FA26B /* NetworkerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1925AA00183A8AFD005FA26B /* NetworkerTests.m */; };
+		1925AA0C183ABADB005FA26B /* SKBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1925AA0B183ABADB005FA26B /* SKBTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		1925A9FC183A8AFD005FA26B /* NetworkerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetworkerTests-Info.plist"; sourceTree = "<group>"; };
 		1925A9FE183A8AFD005FA26B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1925AA00183A8AFD005FA26B /* NetworkerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkerTests.m; sourceTree = "<group>"; };
+		1925AA0A183ABADB005FA26B /* SKBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBTableViewController.h; sourceTree = "<group>"; };
+		1925AA0B183ABADB005FA26B /* SKBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				1925A9E4183A8AFD005FA26B /* SKBAppDelegate.h */,
 				1925A9E5183A8AFD005FA26B /* SKBAppDelegate.m */,
 				1925A9E7183A8AFD005FA26B /* Main.storyboard */,
+				1925AA0A183ABADB005FA26B /* SKBTableViewController.h */,
+				1925AA0B183ABADB005FA26B /* SKBTableViewController.m */,
 				1925A9EA183A8AFD005FA26B /* SKBViewController.h */,
 				1925A9EB183A8AFD005FA26B /* SKBViewController.m */,
 				1925A9ED183A8AFD005FA26B /* Images.xcassets */,
@@ -252,6 +257,7 @@
 			files = (
 				1925A9E2183A8AFD005FA26B /* main.m in Sources */,
 				1925A9E6183A8AFD005FA26B /* SKBAppDelegate.m in Sources */,
+				1925AA0C183ABADB005FA26B /* SKBTableViewController.m in Sources */,
 				1925A9EC183A8AFD005FA26B /* SKBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
