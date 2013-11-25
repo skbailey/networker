@@ -7,6 +7,7 @@
 //
 
 #import "SKBTableViewController.h"
+#import "SKBDetailViewController.h"
 
 @interface SKBTableViewController ()
 
@@ -63,12 +64,17 @@
     
     // Configure the cell...
     NSString *albumName = [[self.tableData objectAtIndex:indexPath.row] valueForKey:@"name"];
-    NSLog(@"Here is an album: %@", albumName);
+    //NSLog(@"Here is an album: %@", albumName);
     cell.textLabel.text = albumName;
   
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *currentIndexPath = [self.tableView indexPathForCell:sender];
+    NSString *albumTitle = [[self.tableData objectAtIndex:currentIndexPath.row] valueForKey:@"name"];
+    [(SKBDetailViewController *)segue.destinationViewController setTitle:albumTitle];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

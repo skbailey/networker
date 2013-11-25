@@ -15,7 +15,7 @@
 
 @implementation SKBViewController
 
-@synthesize urlSession;
+@synthesize urlSession, spotifyData;
 
 - (void)viewDidLoad
 {
@@ -33,17 +33,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareSearchRequest {
+    CFStringRef encodedString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                        (__bridge CFStringRef)(self.artist.text), NULL, CFSTR(":/?#[]@!$&'()*+,;="), kCFStringEncodingUTF8);
+    NSString *url = [NSString stringWithFormat:@"https://mager-spotify-web.p.mashape.com/search/1/album.json?q=%@", encodedString];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [urlRequest setValue:@"Fdjwqv9HGgTSPv0vG3wRv0uAVj5YiAP2" forHTTPHeaderField:@"X-Mashape-Authorization"];
+    
+    NSURLSessionDataTask *dataTask = [self.urlSession dataTaskWithRequest:urlRequest];
+    [dataTask resume];
+}
+
 - (IBAction)makeRequest:(id)sender {
   NSLog(@"Make a Spotify request");
   
-  CFStringRef encodedString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                      (__bridge CFStringRef)(self.artist.text), NULL, CFSTR(":/?#[]@!$&'()*+,;="), kCFStringEncodingUTF8);
-  NSString *url = [NSString stringWithFormat:@"https://mager-spotify-web.p.mashape.com/search/1/album.json?q=%@", encodedString];
-  NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-  [urlRequest setValue:@"Fdjwqv9HGgTSPv0vG3wRv0uAVj5YiAP2" forHTTPHeaderField:@"X-Mashape-Authorization"];
-  
-  NSURLSessionDataTask *dataTask = [self.urlSession dataTaskWithRequest:urlRequest];
-  [dataTask resume];
+  [self prepareSearchRequest];
 }
 
 #pragma mark -
@@ -66,15 +70,24 @@
     NSLog(@"Task Completed with error: %@", [error description]);
     self.response = nil;
   } else {
-    NSDictionary *spotifyData = [NSJSONSerialization JSONObjectWithData:self.response options:NSJSONReadingMutableContainers error:nil];
-    [spotifyData enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop){
-      //NSLog(@"Key: %@, Value: %@", (NSString *)key, (NSString *)value);
+    NSDictionary *networkData = [NSJSONSerialization JSONObjectWithData:self.response options:NSJSONReadingMutableContainers error:nil];
+    [networkData enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop){
+      NSLog(@"Key: %@, Value: %@", (NSString *)key, (NSString *)value);
     }];
-    
-    SKBTableViewController *myTableViewController = (SKBTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MyTableViewer"];
-    myTableViewController.tableData = [spotifyData valueForKey:@"albums"];
-    [self presentViewController:myTableViewController animated:YES completion:nil];
+      
+    self.spotifyData = networkData;
+    [self performSegueWithIdentifier:@"ShowAlbums" sender:self];
   }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    SKBTableViewController *nextController = (SKBTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+    nextController.title = [[[self.artist text] stringByAppendingString:@" Albums"] capitalizedString];
+    nextController.tableData = [self.spotifyData valueForKey:@"albums"];
+}
+
+- (void)awakeFromNib {
+    NSLog(@"VC awoke from Nib");
 }
 
 @end

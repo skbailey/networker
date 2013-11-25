@@ -22,6 +22,7 @@
 		1925A9FF183A8AFD005FA26B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1925A9FD183A8AFD005FA26B /* InfoPlist.strings */; };
 		1925AA01183A8AFD005FA26B /* NetworkerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1925AA00183A8AFD005FA26B /* NetworkerTests.m */; };
 		1925AA0C183ABADB005FA26B /* SKBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1925AA0B183ABADB005FA26B /* SKBTableViewController.m */; };
+		2E997CBA1841CB4800428B2C /* SKBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E997CB91841CB4700428B2C /* SKBDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		1925AA00183A8AFD005FA26B /* NetworkerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkerTests.m; sourceTree = "<group>"; };
 		1925AA0A183ABADB005FA26B /* SKBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBTableViewController.h; sourceTree = "<group>"; };
 		1925AA0B183ABADB005FA26B /* SKBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBTableViewController.m; sourceTree = "<group>"; };
+		2E997CB81841CB4700428B2C /* SKBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBDetailViewController.h; sourceTree = "<group>"; };
+		2E997CB91841CB4700428B2C /* SKBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				1925A9E4183A8AFD005FA26B /* SKBAppDelegate.h */,
 				1925A9E5183A8AFD005FA26B /* SKBAppDelegate.m */,
 				1925A9E7183A8AFD005FA26B /* Main.storyboard */,
+				2E997CB81841CB4700428B2C /* SKBDetailViewController.h */,
+				2E997CB91841CB4700428B2C /* SKBDetailViewController.m */,
 				1925AA0A183ABADB005FA26B /* SKBTableViewController.h */,
 				1925AA0B183ABADB005FA26B /* SKBTableViewController.m */,
 				1925A9EA183A8AFD005FA26B /* SKBViewController.h */,
@@ -256,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1925A9E2183A8AFD005FA26B /* main.m in Sources */,
+				2E997CBA1841CB4800428B2C /* SKBDetailViewController.m in Sources */,
 				1925A9E6183A8AFD005FA26B /* SKBAppDelegate.m in Sources */,
 				1925AA0C183ABADB005FA26B /* SKBTableViewController.m in Sources */,
 				1925A9EC183A8AFD005FA26B /* SKBViewController.m in Sources */,
@@ -467,6 +473,7 @@
 				1925AA06183A8AFD005FA26B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1925AA07183A8AFD005FA26B /* Build configuration list for PBXNativeTarget "NetworkerTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +482,7 @@
 				1925AA09183A8AFD005FA26B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

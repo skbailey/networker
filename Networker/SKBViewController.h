@@ -13,5 +13,7 @@
 @property (nonatomic, strong) NSURLSession *urlSession;
 @property (nonatomic, strong) NSMutableData *response;
 @property (nonatomic, weak) IBOutlet UITextField *artist;
+@property (nonatomic, strong) NSDictionary *spotifyData;
+@property (nonatomic, strong) NSString *searchText;
 
 @end
