@@ -75,6 +75,13 @@
     NSString *albumTitle = [[self.tableData objectAtIndex:currentIndexPath.row] valueForKey:@"name"];
     [(SKBDetailViewController *)segue.destinationViewController setTitle:albumTitle];
 }
+
+
+- (IBAction)returnHome {
+  NSLog(@"Go home son!");
+  [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
